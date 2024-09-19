@@ -134,25 +134,25 @@ void runP2()
 
 
 void runP3() {
-    // Array of file names to test
+    
     std::string fileNames[] = { "data.txt", "parallelogram.txt" };
 
     for (const std::string& fileName : fileNames) {
         Polygon polygon;
 
-        // Open the input file
+        
         std::ifstream inputFile(fileName);
         if (!inputFile) {
             std::cerr << "Error opening file: " << fileName << std::endl;
-            continue;  // Skip to the next file
+            continue;  
         }
 
         std::cout << "Processing file: " << fileName << std::endl;
-        polygon.readData(inputFile);  // Read data from the file
+        polygon.readData(inputFile);  
 
         std::cout << "Signed area: " << polygon.getSignedArea() << std::endl;
 
-        // Example transformation matrix: scaling by 2
+        
         Matrix3x3 scalingMatrix = Matrix3x3::scale(2.0f, 2.0f);
         Polygon transformedPolygon = polygon.transform(scalingMatrix);
 
